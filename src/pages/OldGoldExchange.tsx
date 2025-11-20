@@ -897,6 +897,8 @@ const OldGoldExchange = () => {
           <div className="hidden print:block">
             <PrintableBill
               customerName={customerName}
+              customerPhone=""
+              customerAddress=""
               billItems={billItems}
               oldOrnaments={oldOrnaments}
               goldRate={goldRate}
