@@ -92,61 +92,36 @@ export const PrintableBill = ({
               <tbody>
                 <tr>
                   <td className="font-semibold py-0.5">SI No of Invoice</td>
-                  <td className="py-0.5">: {format(new Date(), "yyyyMMddHHmmss")}</td>
+                  <td className="py-0.5">: MGM_{format(new Date(), "yyyyMMddHHmmss")}</td>
                 </tr>
                 <tr>
                   <td className="font-semibold py-0.5">Date of Invoice</td>
                   <td className="py-0.5">: {format(new Date(), "dd/MM/yyyy")}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold py-0.5">PAN NO</td>
-                  <td className="py-0.5">: ABLFM1188M</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        {/* Receiver and Consignee Details */}
-        <div className="grid grid-cols-2 gap-4 p-3 text-xs border-b border-black">
-          <div>
-            <p className="font-bold mb-1">Details of Receiver (Billed to)</p>
-            <table className="w-full">
-              <tbody>
-                <tr>
-                  <td className="font-semibold py-0.5">Name</td>
-                  <td className="py-0.5">: {customerName}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold py-0.5">Address</td>
-                  <td className="py-0.5">: {customerAddress || "Sankarankovil"}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold py-0.5">Phone</td>
-                  <td className="py-0.5">: {customerPhone || "-"}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <p className="font-bold mb-1">Details of Consignee (Shipped to)</p>
-            <table className="w-full">
-              <tbody>
-                <tr>
-                  <td className="font-semibold py-0.5">Name</td>
-                  <td className="py-0.5">: {customerName}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold py-0.5">Address</td>
-                  <td className="py-0.5">: {customerAddress || "Sankarankovil"}</td>
-                </tr>
-                <tr>
-                  <td className="font-semibold py-0.5">Phone</td>
-                  <td className="py-0.5">: {customerPhone || "-"}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        {/* Receiver Details */}
+        <div className="p-3 text-xs border-b border-black">
+          <p className="font-bold mb-1">Details of Receiver (Billed to)</p>
+          <table className="w-full">
+            <tbody>
+              <tr>
+                <td className="font-semibold py-0.5">Name</td>
+                <td className="py-0.5">: {customerName}</td>
+              </tr>
+              <tr>
+                <td className="font-semibold py-0.5">Address</td>
+                <td className="py-0.5">: {customerAddress || "Sankarankovil"}</td>
+              </tr>
+              <tr>
+                <td className="font-semibold py-0.5">Phone</td>
+                <td className="py-0.5">: {customerPhone || "-"}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         {/* Items Table */}
