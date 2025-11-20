@@ -42,6 +42,8 @@ const Billing = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
   const [loading, setLoading] = useState(true);
   const [billItems, setBillItems] = useState<BillItem[]>([]);
   const [currentItem, setCurrentItem] = useState({
@@ -255,6 +257,8 @@ const Billing = () => {
       // Reset form after printing
       setTimeout(() => {
         setCustomerName("");
+        setCustomerPhone("");
+        setCustomerAddress("");
         setBillItems([]);
       }, 1500);
     } catch (error) {
@@ -305,9 +309,19 @@ const Billing = () => {
                       <CardTitle className="text-lg">Customer Details</CardTitle>
                     </CardHeader>
                     <CardContent className="pb-4">
-                      <div className="space-y-1.5">
-                        <Label htmlFor="customerName" className="text-sm">Customer Name</Label>
-                        <Input id="customerName" placeholder="Enter customer name" value={customerName} onChange={e => setCustomerName(e.target.value)} className="h-9" />
+                      <div className="space-y-3">
+                        <div className="space-y-1.5">
+                          <Label htmlFor="customerName" className="text-sm">Customer Name</Label>
+                          <Input id="customerName" placeholder="Enter customer name" value={customerName} onChange={e => setCustomerName(e.target.value)} className="h-9" />
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label htmlFor="customerPhone" className="text-sm">Phone Number</Label>
+                          <Input id="customerPhone" placeholder="Enter phone number" value={customerPhone} onChange={e => setCustomerPhone(e.target.value)} className="h-9" />
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label htmlFor="customerAddress" className="text-sm">Address</Label>
+                          <Input id="customerAddress" placeholder="Enter address" value={customerAddress} onChange={e => setCustomerAddress(e.target.value)} className="h-9" />
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -474,7 +488,9 @@ const Billing = () => {
 
           {/* Printable Bill (Hidden, only shows when printing) */}
           <PrintableBill 
-            customerName={customerName} 
+            customerName={customerName}
+            customerPhone={customerPhone}
+            customerAddress={customerAddress}
             billItems={billItems} 
             oldOrnaments={[]}
             goldRate={goldRate} 

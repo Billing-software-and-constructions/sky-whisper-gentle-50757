@@ -642,6 +642,8 @@ const BillHistory = () => {
       {selectedBill && billItems.length > 0 && (
         <PrintableBill
           customerName={selectedBill.customer_name}
+          customerPhone=""
+          customerAddress=""
           billItems={billItems.map(item => ({
             categoryName: item.category_name,
             subcategoryName: "",
@@ -764,6 +766,8 @@ const BillHistory = () => {
       {selectedExchange && (
         <PrintableBill
           customerName={selectedExchange.customer_name}
+          customerPhone=""
+          customerAddress=""
           billItems={[]}
           oldOrnaments={[{
             categoryName: selectedExchange.category_name,

@@ -2,6 +2,8 @@ import { format } from "date-fns";
 
 interface PrintableBillProps {
   customerName: string;
+  customerPhone: string;
+  customerAddress: string;
   billItems: Array<{
     categoryName: string;
     subcategoryName: string;
@@ -29,6 +31,8 @@ interface PrintableBillProps {
 
 export const PrintableBill = ({
   customerName,
+  customerPhone,
+  customerAddress,
   billItems,
   oldOrnaments,
   goldRate,
@@ -115,7 +119,11 @@ export const PrintableBill = ({
                 </tr>
                 <tr>
                   <td className="font-semibold py-0.5">Address</td>
-                  <td className="py-0.5">: Sankarankovil</td>
+                  <td className="py-0.5">: {customerAddress || "Sankarankovil"}</td>
+                </tr>
+                <tr>
+                  <td className="font-semibold py-0.5">Phone</td>
+                  <td className="py-0.5">: {customerPhone || "-"}</td>
                 </tr>
               </tbody>
             </table>
@@ -130,7 +138,11 @@ export const PrintableBill = ({
                 </tr>
                 <tr>
                   <td className="font-semibold py-0.5">Address</td>
-                  <td className="py-0.5">: Sankarankovil</td>
+                  <td className="py-0.5">: {customerAddress || "Sankarankovil"}</td>
+                </tr>
+                <tr>
+                  <td className="font-semibold py-0.5">Phone</td>
+                  <td className="py-0.5">: {customerPhone || "-"}</td>
                 </tr>
               </tbody>
             </table>
